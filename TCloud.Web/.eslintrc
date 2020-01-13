@@ -1,0 +1,30 @@
+{
+  "extends": [ "eslint:recommended", "plugin:react/recommended" ],
+  "parser": "babel-eslint",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "jsx": true,
+      "arrowFunctions": true,
+      "destructuring": true,
+      "restParams": true,
+      "spread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "plugins": [ "react" ],
+  "rules": {
+    "no-console": "off",
+    "indent": [ "error", 2 ],
+    "semi": [ "error", "always" ]
+  }
+}
