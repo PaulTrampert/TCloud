@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  tcloud.web:
+    image: ${DOCKER_REGISTRY-}tcloudweb
+    build:
+      context: .
+      dockerfile: TCloud.Web/Dockerfile
+
+  tcloud.api:
+    image: ${DOCKER_REGISTRY-}tcloudapi
+    build:
+      context: .
+      dockerfile: TCloud.Api/Dockerfile
+
