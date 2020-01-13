@@ -13,3 +13,5 @@ services:
       context: .
       dockerfile: TCloud.Api/Dockerfile
 
+  mongodb:
+    image: mongo
