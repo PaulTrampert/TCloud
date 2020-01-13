@@ -1,6 +1,7 @@
-﻿const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+﻿const TerserJsPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -16,11 +17,11 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new TerserJSPlugin({
+      new TerserJsPlugin({
         sourceMap: true
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ],
+      new OptimizeCssAssetsPlugin({})
+    ]
   },
   module: {
     rules: [
@@ -78,6 +79,10 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css'
+    }),
+    new HtmlWebpackPlugin({
+      title: "TCloud",
+      hash: true
     })
   ]
 };
