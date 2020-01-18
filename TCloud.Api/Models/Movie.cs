@@ -7,6 +7,8 @@ namespace TCloud.Api.Models
     {
         public string Id { get; set; }
         
+        [DefaultSort]
+        [Sortable]
         public string Title { get; set; }
         
         public string Description { get; set; }
@@ -17,8 +19,10 @@ namespace TCloud.Api.Models
         
         public IEnumerable<string> Producers { get; set; }
         
+        [Sortable]
         public string Studio { get; set; }
         
+        [Sortable]
         public DateTimeOffset ReleaseDate { get; set; }
         
         public IEnumerable<string> Cast { get; set; }

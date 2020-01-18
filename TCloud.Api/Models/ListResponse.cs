@@ -8,7 +8,7 @@ namespace TCloud.Api.Models
         
         public int PageSize { get; set; }
         
-        public int Total { get; set; }
+        public long Total { get; set; }
         
         public IEnumerable<T> Results { get; set; } = new List<T>();
     }
