@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using MongoDB.Driver;
 
-namespace TCloud.Api.Models
+namespace TCloud.Api.Models.List
 {
     public class ListRequest<T> : IValidatableObject
     {
@@ -15,7 +14,7 @@ namespace TCloud.Api.Models
 
         public string SortBy { get; set; } = 
             typeof(T).GetProperties()
-                .FirstOrDefault(p => p.GetCustomAttribute<DefaultSortAttribute>() != null)?
+                .FirstOrDefault(p => CustomAttributeExtensions.GetCustomAttribute<DefaultSortAttribute>((MemberInfo) p) != null)?
                 .Name
             ?? typeof(T).GetProperties()
                 .FirstOrDefault(p => p.GetCustomAttribute<SortableAttribute>() != null)?

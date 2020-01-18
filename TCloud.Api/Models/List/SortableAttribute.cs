@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace TCloud.Api.Models
+namespace TCloud.Api.Models.List
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class FilterableAttribute : Attribute
+    public class SortableAttribute : Attribute
     {
         
     }

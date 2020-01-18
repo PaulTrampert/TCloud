@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TCloud.Api.Models
+namespace TCloud.Api.Models.List
 {
     public class ListResponse<T>
     {
