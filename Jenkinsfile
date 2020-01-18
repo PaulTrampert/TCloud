@@ -116,10 +116,12 @@ pipeline {
     stage("Build Web Docker Image") {
       agent any
       steps {
-        withDockerRegistry(url: "https://${DOCKER_REPO}", credentialsId: DOCKER_REPO_CREDENTIALS) {
-          sh "docker build -t ${DOCKER_REPO}/tcloud-web:${IMAGE_TAG} -f TCloud.Web/Dockerfile ."
-          sh "docker push ${DOCKER_REPO}/tcloud-web:${IMAGE_TAG}"
-          sh "docker rmi ${DOCKER_REPO}/tcloud-web:${IMAGE_TAG}"
+        lock("Build TCloud.Web") {
+          withDockerRegistry(url: "https://${DOCKER_REPO}", credentialsId: DOCKER_REPO_CREDENTIALS) {
+            sh "docker build -t ${DOCKER_REPO}/tcloud-web:${IMAGE_TAG} -f TCloud.Web/Dockerfile ."
+            sh "docker push ${DOCKER_REPO}/tcloud-web:${IMAGE_TAG}"
+            sh "docker rmi ${DOCKER_REPO}/tcloud-web:${IMAGE_TAG}"
+          }
         }
       }
     }
@@ -127,10 +129,12 @@ pipeline {
     stage("Build Api Docker Image") {
       agent any
       steps {
-        withDockerRegistry(url: "https://${DOCKER_REPO}", credentialsId: DOCKER_REPO_CREDENTIALS) {
-          sh "docker build -t ${DOCKER_REPO}/tcloud-api:${IMAGE_TAG} -f TCloud.Api/Dockerfile ."
-          sh "docker push ${DOCKER_REPO}/tcloud-api:${IMAGE_TAG}"
-          sh "docker rmi ${DOCKER_REPO}/tcloud-api:${IMAGE_TAG}"
+        lock("Build TCloud.Api") {
+          withDockerRegistry(url: "https://${DOCKER_REPO}", credentialsId: DOCKER_REPO_CREDENTIALS) {
+            sh "docker build -t ${DOCKER_REPO}/tcloud-api:${IMAGE_TAG} -f TCloud.Api/Dockerfile ."
+            sh "docker push ${DOCKER_REPO}/tcloud-api:${IMAGE_TAG}"
+            sh "docker rmi ${DOCKER_REPO}/tcloud-api:${IMAGE_TAG}"
+          }
         }
       }
     }
