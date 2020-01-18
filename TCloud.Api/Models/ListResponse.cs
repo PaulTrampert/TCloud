@@ -10,6 +10,6 @@ namespace TCloud.Api.Models
         
         public int Total { get; set; }
         
-        public IEnumerable<T> Results { get; set; }
+        public IEnumerable<T> Results { get; set; } = new List<T>();
     }
 }
