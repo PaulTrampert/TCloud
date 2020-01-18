@@ -9,10 +9,10 @@ module.exports = {
   devtool: 'source-map',
   mode: devMode ? 'development' : 'production',
   entry: {
-    index: './scripts/index.js'
+    index: './src/index.js'
   },
   output: {
-    path: path.join(__dirname, 'wwwroot/'),
+    path: path.join(__dirname, '../wwwroot/'),
     filename: '[name].js'
   },
   optimization: {
