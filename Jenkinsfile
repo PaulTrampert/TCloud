@@ -46,7 +46,7 @@ pipeline {
             }
           }
           steps {
-            dir('TCloud/ClientApp') {
+            dir('TCloud.Web/ClientApp') {
               sh 'echo $HOME'
               sh 'npm install'
               sh 'npm run test-once'
