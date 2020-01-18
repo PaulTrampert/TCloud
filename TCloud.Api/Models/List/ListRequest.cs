@@ -14,7 +14,7 @@ namespace TCloud.Api.Models.List
 
         public string SortBy { get; set; } = 
             typeof(T).GetProperties()
-                .FirstOrDefault(p => CustomAttributeExtensions.GetCustomAttribute<DefaultSortAttribute>((MemberInfo) p) != null)?
+                .FirstOrDefault(p => p.GetCustomAttribute<DefaultSortAttribute>() != null)?
                 .Name
             ?? typeof(T).GetProperties()
                 .FirstOrDefault(p => p.GetCustomAttribute<SortableAttribute>() != null)?
