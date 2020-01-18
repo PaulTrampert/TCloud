@@ -25,13 +25,13 @@ class App extends React.Component {
           <main>
             <Switch>
               <Route path="/movies">
-              Movies
+                Movies
               </Route>
               <Route path="/music">
                 Music
               </Route>
               <Route path="/">
-              Home
+                Home
               </Route>
             </Switch>
           </main>
