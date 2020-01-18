@@ -28,6 +28,12 @@ namespace TCloud.Web
             }
 
             app.UseSpaStaticFiles();
+            
+            app.UseSpa(cfg =>
+            {
+                cfg.Options.DefaultPage = "/index.html";
+                cfg.Options.SourcePath = "ClientApp";
+            });
         }
     }
 }
