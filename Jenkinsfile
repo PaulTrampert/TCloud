@@ -114,7 +114,6 @@ pipeline {
     }
 
     stage("Build Web Docker Image") {
-      agent any
       steps {
         lock("Build TCloud.Web") {
           withDockerRegistry(url: "https://${DOCKER_REPO}", credentialsId: DOCKER_REPO_CREDENTIALS) {
@@ -127,7 +126,6 @@ pipeline {
     }
 
     stage("Build Api Docker Image") {
-      agent any
       steps {
         lock("Build TCloud.Api") {
           withDockerRegistry(url: "https://${DOCKER_REPO}", credentialsId: DOCKER_REPO_CREDENTIALS) {
