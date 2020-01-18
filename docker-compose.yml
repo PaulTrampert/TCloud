@@ -6,12 +6,16 @@ services:
     build:
       context: .
       dockerfile: TCloud.Web/Dockerfile
+    ports:
+      - 5000:80
 
   tcloud.api:
     image: ${DOCKER_REGISTRY-}tcloudapi
     build:
       context: .
       dockerfile: TCloud.Api/Dockerfile
+    ports:
+      - 5001:80
 
   mongodb:
     image: mongo
