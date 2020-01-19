@@ -20,7 +20,6 @@ pipeline {
   stages {
     stage('Test') {
       parallel {
-        /*
         stage("NUnit") {
           agent {
             docker {
@@ -31,11 +30,9 @@ pipeline {
           }
           steps {
             sh 'echo $HOME'
-            sh "touch TCloud/WebpackResources.json"
-            sh "dotnet test TCloud.Test/TCloud.Test.csproj -l trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura"
+            sh "dotnet test TCloud.Api.Test/TCloud.Api.Test.csproj -l trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura"
           }
         }
-        */
 
         stage("Jasmine") {
           agent {

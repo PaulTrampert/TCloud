@@ -342,3 +342,4 @@ healthchecksdb
 coverage/
 testResults/
 wwwroot/
+*cobertura*.xml
