@@ -138,9 +138,8 @@ pipeline {
     changed {
       mail to: 'paul.trampert@gmail.com', subject: "Build status of ${env.JOB_NAME} changed to ${currentBuild.result}", body: "Build log may be found at ${env.BUILD_URL}"
     }
-    always {
+    cleanup {
       deleteDir()
-      sh "docker system prune -f"
     }
   }
 }
