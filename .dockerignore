@@ -23,5 +23,8 @@
 **/values.dev.yaml
 **/wwwroot/**
 **/node_modules/**
+**/*.trx
+**/*cobertura*.xml
+**/testResults/*.xml
 LICENSE
 README.md
