@@ -77,9 +77,9 @@ pipeline {
               [
                 $class: 'MSTestJunitHudsonTestType',
                 deleteOutputFiles: true,
-                failIfNotNew: false,
+                failIfNotNew: true,
                 pattern: '**/*.trx',
-                skipNoTestFiles: true,
+                skipNoTestFiles: false,
                 stopProcessingIfError: true
               ],
               [
